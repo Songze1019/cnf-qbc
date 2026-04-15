@@ -1,0 +1,36 @@
+# Usage: bash workflow/qbc.sh --config workflow/configs/qbc.transition1x.yaml
+
+# Required
+input_xyz: data/transition1x/train.xyz
+init_size: 1024
+candidate_pct: 5
+select_size: 512
+max_rounds: 20
+
+# Optional
+workdir: workflow/qbc_runs/transition1x
+train_work_dir: train_runs
+log_dir: train_runs/logs
+model_dir: train_runs/model
+checkpoints_dir: checkpoints
+results_dir: train_runs/results
+downloads_dir: train_runs/downloads
+metrics_file: round_metrics.csv
+valid_xyz: data/transition1x/val.xyz
+test_xyz: data/transition1x/test.xyz
+seeds: 0,1,2
+seed: 42
+device: cuda
+batch_size: 32
+# Optional: uncertainty/test-eval batch size (defaults to batch_size)
+# eval_batch_size: 32
+max_num_epochs: 5
+r_max: 6.0
+hidden_irreps: 32x0e + 32x1o
+force_weight: 10.0
+uncertainty_metric: force_std_p95
+# uncertainty_threshold: 0.10
+# Optional: compute test uncertainty + test RMSE/L4 every N rounds (default 1 = every round)
+# metrics_interval: 1
+# Either key works: cueq or enable_cueq
+cueq: true

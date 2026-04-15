@@ -1,0 +1,41 @@
+# Usage: bash workflow/fps_qbc.sh --config workflow/configs/fps_qbc.example.yaml
+
+# Required
+input_xyz: data/Trainfile_FeCHO/train.extxyz
+init_size: 256
+candidate_pct: 5
+select_size: 128
+max_rounds: 30
+
+# Optional
+workdir: workflow/fps_qbc_runs/transition1x
+train_work_dir: train_runs
+log_dir: train_runs/logs
+model_dir: train_runs/model
+checkpoints_dir: checkpoints
+results_dir: train_runs/results
+downloads_dir: train_runs/downloads
+metrics_file: round_metrics.csv
+valid_xyz: data/Trainfile_FeCHO/val.extxyz
+test_xyz: data/Trainfile_FeCHO/test.extxyz
+fps_model: /home/xmcao/huosongze/.mace/model/mace-omat-0-small.model
+seeds: 0,1,2
+seed: 42
+device: cuda
+batch_size: 16
+# Optional: extraction batch size for FPS features (defaults to batch_size)
+# fps_batch_size: 8
+# Optional: uncertainty/test-eval batch size (defaults to batch_size)
+# eval_batch_size: 8
+max_num_epochs: 30
+r_max: 6.0
+hidden_irreps: 128x0e + 128x1o
+force_weight: 10.0
+uncertainty_metric: force_std_p95
+# uncertainty_threshold: 0.10
+fps_feature_key: structure_features
+fps_normalization: zscore
+# Optional: compute test uncertainty + test RMSE/L4 every N rounds (default 1 = every round)
+# metrics_interval: 1
+# Either key works: cueq or enable_cueq
+cueq: true

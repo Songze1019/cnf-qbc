@@ -1,0 +1,16 @@
+# Usage: bash workflow/fps.sh --config workflow/configs/fps.transition1x.yaml
+
+# Required
+input_xyz: data/transition1x/train.xyz
+init_size: 1024
+select_size: 512
+max_rounds: 20
+
+# Optional
+workdir: workflow/fps_runs/transition1x
+fps_model: /home/sjtu-caoxiaoming/huosongze/.mace/MACE-OFF23_small.model
+seed: 42
+device: cuda
+fps_batch_size: 32
+fps_feature_key: structure_features
+fps_normalization: zscore

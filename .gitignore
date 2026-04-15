@@ -1,0 +1,9 @@
+data/
+*.xyz
+*.model
+*.log
+*.txt
+*.pt
+*.npy
+*.npz
+*.extxyz
