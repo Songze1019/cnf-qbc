@@ -1,4 +1,7 @@
 data/
+tests/
+rets/
+src/transition1x/
 *.xyz
 *.model
 *.log
